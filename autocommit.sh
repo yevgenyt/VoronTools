@@ -75,7 +75,7 @@ push_config(){
   cd $config_folder
   git pull origin $branch --no-rebase
   git add .
-  git commit -m "$*"
+  git commit -m "$1"
   git push origin $branch
 }
 
