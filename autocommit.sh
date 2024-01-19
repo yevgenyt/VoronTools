@@ -81,4 +81,19 @@ push_config(){
 
 grab_version
 # TODO need to figure out handling of quotes in the user input
+#
+########### this is the config_backup.cfg  -- that also has to be changed
+# [gcode_shell_command backup_cfg]
+## next line needs to be changed to accomodate Manta users (they are using login "biqu") (minor)
+## command: /usr/bin/bash /home/pi/printer_data/config/autocommit.sh
+# timeout: 30
+# verbose: True
+
+# [gcode_macro BACKUP_CFG]
+# description: Backs up config directory GitHub
+# gcode:
+#     {% set commit_message = params.COMMIT_MESSAGE|default('Auto commit')|string %}
+#     RUN_SHELL_COMMAND CMD=backup_cfg  PARAMS='{commit_message}'
+########## endof config_backup.cfg
+
 push_config "$*"
